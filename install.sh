@@ -1,9 +1,9 @@
 #!/bin/bash
-# Installation script for Web Auth MCP Server
+# Installation script for Crash MCP Server
 
 set -e
 
-echo "Installing Web Auth MCP Server..."
+echo "Installing Crash MCP Server..."
 
 # Check if Python 3.8+ is available
 if ! command -v python3 &> /dev/null; then
@@ -38,14 +38,14 @@ echo "Installing dependencies..."
 pip install -r requirements.txt
 
 # Install package in development mode
-echo "Installing Web Auth MCP Server..."
+echo "Installing Crash MCP Server..."
 pip install -e .
 
 echo "Installation completed successfully!"
 echo ""
 echo "To run the server:"
 echo "  source venv/bin/activate"
-echo "  web-auth-mcp"
+echo "  crash-mcp"
 echo ""
 echo "To run tests:"
 echo "  source venv/bin/activate"
