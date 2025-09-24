@@ -21,24 +21,29 @@ A professional MCP (Model Context Protocol) server for crash dump analysis and k
 
 ## Installation
 
-### Quick Install
+### Quick Install (Recommended)
 
 ```bash
-./install.sh
+# Install directly from source
+pip install -e .
 ```
 
-### Manual Install
+### Development Install
 
 ```bash
-# Create virtual environment
-python3 -m venv venv
-source venv/bin/activate
+# Create virtual environment (optional but recommended)
+python3 -m venv crash_mcp_env
+source crash_mcp_env/bin/activate
 
-# Install dependencies
-pip install -r requirements.txt
-
-# Install package
+# Install dependencies and package
 pip install -e .
+```
+
+### System Install
+
+```bash
+# Install system-wide (requires sudo)
+sudo pip install .
 ```
 
 ## Usage
@@ -47,22 +52,19 @@ pip install -e .
 
 #### Stdio Mode (Default)
 ```bash
-# Activate virtual environment
-source venv/bin/activate
-
 # Run the server with stdio transport
 crash-mcp
+
+# Or with module syntax
+python -m crash_mcp.server
 ```
 
 #### HTTP/SSE Mode
 ```bash
-# Activate virtual environment
-source venv/bin/activate
-
 # Run the server with HTTP transport on default port 8080
 crash-mcp-http
 
-# Or run with module syntax
+# Or with module syntax
 python -m crash_mcp.server --http
 
 # Access the server at: http://localhost:8080/sse
@@ -111,6 +113,9 @@ pytest tests/crash/
 
 # Test crash utility integration
 python tests/crash/test_crash_server.py
+
+# Run all tests
+pytest
 ```
 
 ## Configuration

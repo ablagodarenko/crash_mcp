@@ -20,14 +20,14 @@ if [ "$(printf '%s\n' "$REQUIRED_VERSION" "$PYTHON_VERSION" | sort -V | head -n1
 fi
 
 # Create virtual environment if it doesn't exist
-if [ ! -d "venv" ]; then
+if [ ! -d "crash_mcp_env" ]; then
     echo "Creating virtual environment..."
-    python3 -m venv venv
+    python3 -m venv crash_mcp_env
 fi
 
 # Activate virtual environment
 echo "Activating virtual environment..."
-source venv/bin/activate
+source crash_mcp_env/bin/activate
 
 # Upgrade pip
 echo "Upgrading pip..."
@@ -44,9 +44,9 @@ pip install -e .
 echo "Installation completed successfully!"
 echo ""
 echo "To run the server:"
-echo "  source venv/bin/activate"
+echo "  source crash_mcp_env/bin/activate"
 echo "  crash-mcp"
 echo ""
 echo "To run tests:"
-echo "  source venv/bin/activate"
+echo "  source crash_mcp_env/bin/activate"
 echo "  pytest"
